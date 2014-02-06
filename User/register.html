@@ -1,0 +1,312 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>注册新用户</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="Keywords" content="{TemplatePageKeywords}" />
+<meta name="Description" content="{TemplatePageDescription}" />
+
+<meta HTTP-EQUIV="Pragma" CONTENT="no-cache" />
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
+<meta HTTP-EQUIV="Expires" CONTENT="0" />
+<style type="text/css" media="all">
+@import url("../css/main.css");
+</style>
+<script src="../javascript/main.js" type="text/javascript"></script>
+<script src="../javascript/common.js" type="text/javascript"></script>
+<script src="../javascript/js0.js" type="text/javascript"></script>
+</head>
+
+<body topmargin="0" leftmargin="0">
+	<table width="100%" border="0" align="center" cellpadding="0"
+		cellspacing="0">
+
+		<tr>
+			<td width="100%" height="125" align="center"
+				background="../images/topbg.jpg" valign="top">
+				<table width="1000" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="100%" height="110">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td width="222" align="center"><a
+										href="http://localhost/Projects/ExpressMail/home.php" title="君安快递"><img
+											src="../images/logo.jpg" width="222" height="110" border="0"></a></td>
+
+									<td width="778">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td height="56">
+													<table width="100%" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td width="350"></td>
+															<td><img src="../images/tel.jpg" /></td>
+															<td class="toptext"><br>中国大陆：023-65190875&nbsp;&nbsp;&nbsp;&nbsp;美国电话：630-445-1555
+																<br> <b>中国直拨美国（只收市话费）电话：950-4030-5341</b></td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td height="54">
+													<table width="100%" border="0" cellspacing="0"
+														cellpadding="0">
+														<tr>
+															<td width="128" align="center"><a href="/index.html"
+																title="首页"><img src="../images/bt0.jpg" width="128"
+																	height="54" border="0"></a></td>
+
+															<td width="128" align="center"><a
+																href="/aboutus.html" title="关于君安"><img
+																	src="../images/bt1.jpg" width="128" height="54"
+																	border="0"></a></td>
+
+															<td width="128" align="center"><a
+																href="/userguide.html" title="发货流程"><img
+																	src="../images/bt2.jpg" width="128" height="54"
+																	border="0"></a></td>
+
+															<td width="128" align="center"><a
+																href="/news/sitehelp.html" title="帮助中心"><img
+																	src="../images/bt3.jpg" width="128" height="54"
+																	border="0"></a></td>
+
+															<td width="128" align="center"><a
+																href="/usashopping.html" title="美国网购"><img
+																	src="../images/bt4.jpg" width="128" height="54"
+																	border="0"></a></td>
+
+															<td width="128" align="center"><a
+																href="/contact.html" title="联系我们"><img
+																	src="../images/bt5.jpg" width="128" height="54"
+																	border="0"></a></td>
+
+															<td width="*">&nbsp;</td>
+														</tr>
+
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td width="100%" height="15" bgcolor="#008942">&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+
+		<tr>
+			<td height="6"></td>
+		</tr>
+
+		<tr>
+			<td width="100%" align="center" valign="top">
+				<table width="1000" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+
+						<td width="1000" valign="top">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td height="42" width="1000"
+										background="../images/texttitle2.jpg" class="titletext"
+										style="text-indent: 48px;">注册新用户</td>
+								</tr>
+								<tr>
+									<td height="5"></td>
+								</tr>
+								<tr>
+									<td width="100%" height="200" valign="top" align="center">
+										<TABLE cellSpacing=0 cellPadding=0 width=100% border=0>
+											<TBODY>
+												<FORM name="reg_form" id="reg_form"
+													action="user_reg.php" method=post>
+													<tr>
+														<td width="120" height="30">邮件地址：</td>
+														<td><input type=text class="TextBox"
+															style="width: 212px; height: 26px; font-weight: bold; font-size: 12px;"
+															onblur="check_username_userreg();check_email_userreg()"
+															name="txtUserName" id="txtUserName" />&nbsp;<font
+															color=red>*</font></td>
+													</tr>
+
+													<tr>
+														<td height="30">登陆密码：</td>
+														<td><input onBlur="check_pwd1_userreg()"
+															class="TextBox" type=password name="txtUserPwd"
+															id="txtUserPwd"
+															style="width: 212px; height: 26px; font-weight: bold; font-size: 12px;" /></td>
+													</tr>
+
+													<tr>
+														<td height="30">重复密码：</td>
+														<td><input onblur="check_pwd2_userreg()"
+															class="TextBox" type=password name="txtUserPwd_2"
+															id="txtUserPwd_2"
+															style="width: 212px; height: 26px; font-weight: bold; font-size: 12px;" /></td>
+													</tr>
+
+													<tr>
+														<td height="30">名(First Name)：</td>
+														<td><input type=text class="TextBox" name="txtCoName"
+															id="txtCoName"
+															style="width: 212px; height: 26px; font-weight: bold; font-size: 12px;" />&nbsp;<font
+															color=red>*</font></td>
+													</tr>
+
+													<tr>
+														<td height="30">姓(Last Name)：</td>
+														<td><input type=text class="TextBox"
+															name="txtReceiverName" id="txtReceiverName"
+															style="width: 212px; height: 26px; font-weight: bold; font-size: 12px;" />&nbsp;<font
+															color=red>*</font></td>
+													</tr>
+
+													<tr>
+														<td height="30">中文姓名：</td>
+														<td><input type=text class="TextBox"
+															name="hz_realname" id="hz_realname"
+															style="width: 212px; height: 26px; font-weight: bold; font-size: 12px;" />&nbsp;<font
+															color=red>*</font>(必须填写中文)</td>
+													</tr>
+
+													<tr>
+														<td height="30">有效联系电话：</td>
+														<td><input type=text class="TextBox"
+															name="txtTelPhone" id="txtTelPhone"
+															style="width: 212px; height: 26px; font-weight: bold; font-size: 12px;" />&nbsp;<font
+															color=red>*</font></td>
+													</tr>
+
+													<tr>
+														<td height="30">所在地：</td>
+														<td><select name="txtCoWebSite" id="txtCoWebSite">
+																<option value="0" checked>美国</option>
+																<option value="1">中国</option>
+														</select></td>
+													</tr>
+
+													<tr>
+														<td height="30">推广注册码：</td>
+														<td><input type="text" class="TextBox"
+															name="service_kehuno" id="service_kehuno" maxlength="50"
+															value=""
+															style="width: 212px; height: 26px; font-weight: bold; font-size: 12px;">
+														</td>
+													</tr>
+
+													<tr>
+														
+													</tr>
+
+													<tr>
+														<td height="10"></td>
+													</tr>
+													<tr>
+														<td height="30"></td>
+														<td><img src="../images/Login_bg_41.jpg"
+															style="cursor: hand;" onClick="userreg_sub();" /> <input
+															type='submit' style='display: none' /></td>
+													</tr>
+												</form>
+
+											</TBODY>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr>
+			<td height="5"></td>
+		</tr>
+
+
+
+		<tr>
+			<td width="100%" height="125" align="center"
+				background="../images/bottombg.jpg" valign="top">
+				<table width="1000" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td height="125" width="673"><table width='100%' border='0'
+								cellspacing='0' cellpadding='0'>
+								<tr>
+									<td align='center' height='69'><a
+										href='http://www.dhl.com' target='_blank'><img
+											src='../images/20120618032001031.gif'
+											width='120' height='33' border='0'></a></td>
+									<td align='center' height='69'><a
+										href='http://lit2.tnt.com.cn/tracker/trackandtraceInit.do'
+										target='_blank'><img
+											src='../images/20120626085942817.jpg'
+											width='120' height='33' border='0'></a></td>
+									<td align='center' height='69'><a
+										href='http://www.ups.com/cn' target='_blank'><img
+											src='../images/20120626090005317.jpg'
+											width='120' height='33' border='0'></a></td>
+									<td align='center' height='69'><a
+										href='http://fedex.com/cn/' target='_blank'><img
+											src='../images/20120626090032426.jpg'
+											width='120' height='33' border='0'></a></td>
+									<td align='center' height='69'><a
+										href='http://www.ems.com.cn' target='_blank'><img
+											src='../images/20120626090118254.jpg'
+											width='120' height='33' border='0'></a></td>
+								</tr>
+							</table></td>
+
+						<td width="*">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td height="30"><a
+										href="http://www.customs.gov.cn/publish/portal0/tab9409/"
+										target="_blank"><img src="../images/tool2.jpg" border="0" /></a></td>
+									<td width="10"></td>
+									<td><a href="#" target="_blank"><img
+											src="../images/tool3.jpg" border="0" /></a></td>
+								</tr>
+
+								<tr>
+									<td height="30"><a href="http://translate.google.cn/"
+										target="_blank"><img src="../images/tool4.jpg" border="0" /></a></td>
+									<td></td>
+									<td><script language="javascript"
+											src="http://count1.51yes.com/click.aspx?id=13534395&logo=1"
+											charset="gb2312"></script></td>
+								</tr>
+							</table>
+
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+	</table>
+</body>
+</html>
+<script>
+	if (String(window.location.href).indexOf("service=") > 0) {
+		document.getElementById("service_kehuno").value = String(
+				window.location.href).substr(
+				parseInt(String(window.location.href).indexOf("service=")) + 8,
+				50);
+
+		hz_setCookie('junan_cookievalue', document
+				.getElementById("service_kehuno").value, 365);
+	} else {
+		document.getElementById("service_kehuno").value = hz_getCookie("junan_cookievalue");
+	}
+
+	reloadcode();
+</script>
+<script language="javascript" src="../javascript/kefu.js" charset="utf-8"></script>
