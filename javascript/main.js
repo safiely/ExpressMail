@@ -1,21 +1,21 @@
 function log_chk() {
 	if (document.getElementById("txtUserName").value == "") {
-		alert("ÇëÊäÈëµç×ÓÓÊÏä");
+		alert("è¯·è¾“å…¥é‚®ç®±åœ°å€ï¼");
 		document.getElementById("txtUserName").focus();
 		return false;
 	}
 
 	if (document.getElementById("txtUserPwd").value == "") {
-		alert("ÇëÊäÈëµÇÂ½ÃÜÂë");
+		alert("è¯·è¾“å…¥å¯†ç ï¼");
 		document.getElementById("txtUserPwd").focus();
 		return false;
 	}
 
-	if (document.getElementById("txtUserCode").value == "") {
-		alert("ÇëÊäÈëÑéÖ¤Âë");
-		document.getElementById("txtUserCode").focus();
-		return false;
-	}
+//	if (document.getElementById("txtUserCode").value == "") {
+//		alert("è¯·è¾“å…¥éªŒè¯ç ï¼");
+//		document.getElementById("txtUserCode").focus();
+//		return false;
+//	}
 
 	document.getElementById("log_form").action = "/Users/login_check.php"
 			+ returnurl;

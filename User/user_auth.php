@@ -16,7 +16,7 @@ function register($email, $password, $firstname, $lastname, $chinsesname, $phone
 		if (r == true) {
 			document.location.href = "http://localhost/Projects/ExpressMail/User/register.html";
 		} else {
-			document.location.href = "http://localhost/Projects/ExpressMail/home.php";
+			document.location.href = "http://localhost/Projects/ExpressMail/index.html";
 		}
 	</script>
 <?php
@@ -31,4 +31,43 @@ function register($email, $password, $firstname, $lastname, $chinsesname, $phone
 	
 	return true;
 }
+
+function login($email, $password) {
+	// connect to db
+	$conn = db_connect();
+	$result = $conn->query("select * from customers where email='" . $email . "'");
+	$row=$result->fetch_assoc();
+	$username=$row['email'];
+	$passwd = $row['password'];
+	if (! $result) {
+		echo "Could not excute query!";
+	}
+	
+	if ($username != $email) {
 ?>
+	<script type="text/javascript" language="JavaScript">
+		var r = confirm("This User is not exist! Press \"OK\" to login again! or \"Cancel\" to home!");
+		if (r == true) {
+			document.location.href = "http://localhost/Projects/ExpressMail/User/login.html";
+		} else {
+			document.location.href = "http://localhost/Projects/ExpressMail/index.html";
+		}
+	</script>
+<?php 		
+	}
+	if (sha1($password) != $passwd) {
+?>
+	<script type="text/javascript" language="JavaScript">
+		var r = confirm("Password is incorrect! Press \"OK\" to login again! or \"Cancel\" to home!");
+		if (r == true) {
+			document.location.href = "http://localhost/Projects/ExpressMail/User/login.html";
+		} else {
+			document.location.href = "http://localhost/Projects/ExpressMail/index.html";
+		}
+	</script>	
+<?php 
+    }
+    return true;
+}
+?>
+

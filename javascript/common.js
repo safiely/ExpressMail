@@ -100,7 +100,7 @@ function closeWindow()
        g('mesWindow').parentNode.removeChild(g('mesWindow'));
     }
 }
-//页面定位
+//页锟芥定位
 function setScroll(objId)
 {
    if(g(objId))
@@ -110,7 +110,7 @@ function setScroll(objId)
       scroll(0,objPos.Top);
    }
 }
-//ajax通用方法
+//ajax通锟矫凤拷锟斤拷
 function createXmlHttp(){
   var ajaxObj=null;
   if(window.ActiveXObject)
@@ -197,7 +197,7 @@ function checkErrorFromBackValue(bakValue)
       {
          if(bakValue.length>6)
          {bakValue=bakValue.substr(6);}
-         else{bakValue='程序发生了未知错误，请再次尝试！';}
+         else{bakValue='绋嬪簭鍙戠敓浜嗘湭鐭ラ敊璇紝璇峰啀娆″皾璇曪紒';}
          alert(bakValue);
          return false;
       }
@@ -266,7 +266,7 @@ function getFormXml()
 function isDataControl(controlId,sign){if(controlId.substring(0,sign.length)==sign){return true;}else{return false;}}
 function getDataColumnName(controlId,sign){return controlId.substr(sign.length);} 
 
-//非法字符过滤
+
 function is_forbid(temp_str)
 {
     temp_str=trimTxt(temp_str);
@@ -324,25 +324,25 @@ function trimTxt(txt)
 {
    return txt.replace(/(^\s*)|(\s*$)/g, "");
 }
-//检查是否为空
+
 function isEmpty(inputId)
 {
    if(trimTxt(g(inputId).value)==''){return true}
    return false;
 }
-//设置是否可显示
+
 function setDisplay(nodeId,state)
 {
    if(g(nodeId)!=null){g(nodeId).style.display=state;}
 }
-//删除元素
+
 function removeNode(nodeId)
 {
    if(g(nodeId)!=null){g(nodeId).parentNode.removeChild(g(nodeId));}
 }
 
 var reginfostr = "";
-//显示提示信息
+
 function showAlert(info,obj,infoSign)
 {
    if(g(infoSign)!=null){return;}
@@ -353,13 +353,12 @@ function showAlert(info,obj,infoSign)
    newd.innerHTML="<font color=red>"+info+"</font>";
    obj.appendChild(newd);
 }
-//删除提示信息
+
 function removeAlert(infoSign)
 {
    if(g(infoSign)==null){return;}
    g(infoSign).parentNode.removeChild(g(infoSign));
 }
-//显示等待信息
 function showWaitInfo(info,obj)
 {
    try{
@@ -391,7 +390,7 @@ function clearWaitInfo()
    if(g('waitInfo')!=null){g('waitInfo').parentNode.removeChild(g('waitInfo'));}
    }catch(e){}
 }
-//设置radio的默认值
+//锟斤拷锟斤拷radio锟斤拷默锟斤拷值
 function setRadioDefaultItem(radioName,valueId)
 {
    var rList=document.getElementsByName(radioName);
@@ -400,7 +399,7 @@ function setRadioDefaultItem(radioName,valueId)
    {
       if(rList[i].checked)
       {
-      　　if(g(valueId)!=null)g(valueId).value=rList[i].value;
+      if(g(valueId)!=null)g(valueId).value=rList[i].value;
           return;
       }
    }
