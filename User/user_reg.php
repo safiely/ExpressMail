@@ -15,9 +15,9 @@ if (register ( $email, $password, $firstname, $lastname, $chinesename, $phonenum
 ?>
 <script type="text/javascript" language="JavaScript">
 	if (confirm("Registration Successful! Click \"OK\" to Login! or Go back to Home!")) {
-		document.location.href="http://localhost/Projects/ExpressMail/User/login.html";
+		document.location.href="login.html";
 	} else {
-		document.location.href="http://localhost/Projects/ExpressMail/home.php";
+		document.location.href="../index.html";
 	}
 </script>	
 

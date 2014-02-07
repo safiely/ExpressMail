@@ -4,7 +4,7 @@ use expressmail;
 
 create table customers
 (
-	customerid int unsigned not null auto_increment,
+	cid int unsigned not null auto_increment,
 	email varchar(100) not null,
 	password char(40) not null,
 	firstname varchar(30) not null,
