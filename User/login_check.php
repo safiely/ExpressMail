@@ -5,5 +5,5 @@ $email = $_POST ['txtUserName'];
 $password = $_POST ['txtUserPwd'];
 
 if (login($email, $password)) {
-	header("Location: test.php");
+	header("Location: ../valid_user.php");
 }

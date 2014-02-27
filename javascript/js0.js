@@ -135,7 +135,7 @@ function check_email() {
 		var pNode = g('ord_' + iSign).parentNode;
 		var myReg = /(^\s*)\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*(\s*$)/;
 		if (!myReg.test(g('ord_' + iSign).value)) {
-			showAlert('�����ʼ���ʽ����ȷ', pNode, iSign + '_ff');
+			showAlert('电子邮件输入格式不正确', pNode, iSign + '_ff');
 			return false;
 		}
 	}
@@ -203,7 +203,7 @@ function check_email_userreg() {
 		var pNode = g(iSign).parentNode;
 		var myReg = /(^\s*)\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*(\s*$)/;
 		if (!myReg.test(g(iSign).value)) {
-			showAlert('�����ʼ���ʽ����ȷ', pNode, iSign + '_ff');
+			showAlert('用户名不合法！', pNode, iSign + '_ff');
 			return false;
 		}
 	}
@@ -216,7 +216,7 @@ function check_pwd1_userreg() {
 
 	var pNode = g('txtUserPwd').parentNode;
 	if (g('txtUserPwd').value.length < 6) {
-		showAlert('������Ҫ���ڵ���6λ��', pNode, 'txtUserPwd_empty');
+		showAlert('密码必须大于6位！', pNode, 'txtUserPwd_empty');
 		return false;
 	}
 	if (!is_forbid(g('txtUserPwd').value)) {
@@ -232,7 +232,7 @@ function check_pwd2_userreg() {
 
 	var pNode = g('txtUserPwd_2').parentNode;
 	if (g('txtUserPwd').value != g('txtUserPwd_2').value) {
-		showAlert('������������벻һ�£�', pNode, 'txtUserPwd_2_empty');
+		showAlert('两次输入的密码不一致！', pNode, 'txtUserPwd_2_empty');
 		return false;
 	}
 	if (!is_forbid(g('txtUserPwd_2').value)) {
@@ -248,7 +248,7 @@ function check_username_userreg() {
 
 	var pNode = g('txtUserName').parentNode;
 	if (g('txtUserName').value.length < 6) {
-		showAlert('�����ʼ���Ҫ���ڵ���6λ��', pNode, 'txtUserName_empty');
+		showAlert('用户名必须大于6位！', pNode, 'txtUserName_empty');
 		return false;
 	}
 	// if(!is_forbid(g('txtUserName').value)){showAlert(ffAlertTxt,pNode,'txtUserName_ff');return
@@ -288,12 +288,12 @@ function userreg_sub() {
 				return false;
 			} else {
 				if (document.getElementById("hz_realname").value == "") {
-					alert("��������������");
+					alert("姓名不能为空！");
 					document.getElementById("hz_realname").focus();
 					return false;
 				} else {
 					if (document.getElementById("txtTelPhone").value == "") {
-						alert("�������ֻ����");
+						alert("电话号码不能为空");
 						document.getElementById("txtTelPhone").focus();
 						return false;
 					} else {

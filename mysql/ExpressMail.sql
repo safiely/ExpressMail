@@ -12,13 +12,13 @@ create table customers
 	chinesename varchar(30) not null,
 	phonenumber int unsigned not null,
 	location char(80),
-	primary key (customerid)
+	primary key (cid)
 );
 
 create table accounts
 (
 	accountid int unsigned not null auto_increment,
-	customerid int unsigned not null references customers(customerid),
+	cid int unsigned not null references customers(cid),
 	balance float(8, 2) not null,
 	zfbrecord float(8, 2) not null,
 	paypalrecord float(8, 2) not null,
@@ -29,7 +29,7 @@ create table accounts
 create table recipient
 (
 	recipientid int unsigned not null auto_increment,
-	customerid int unsigned not null references customers(customerid),
+	cid int unsigned not null references customers(cid),
 	recipientname varchar(40) not null,
 	recipientaddress char(80) not null,
 	city char(40) not null,
@@ -43,7 +43,7 @@ create table recipient
 create table sender
 (
 	senderid int unsigned not null auto_increment,
-	customerid int unsigned not null references customers(customerid),
+	cid int unsigned not null references customers(cid),
 	sendername varchar(40) not null,
 	senderaddress char(80) not null,
 	city char(40) not null,
@@ -56,26 +56,44 @@ create table sender
 
 create table package
 (
-	packageid int unsigned not null auto_increment primary key,
-	customerid int unsigned not null references customers(customerid),
+	pack_id int unsigned not null auto_increment primary key,
+	cid int unsigned not null references customers(cid),
+	pack_date date not null,
 	storage char(50) not null,
-	dilivermethod char(50) not null,
+	delivermethod char(50) not null,
 	tracknumber char(50) not null,
 	note varchar(250) not null,
+	pack_weight varchar(10) not null,
+	item1_name char(50) not null,
+	item1_num  char(50) not null,
+	item1_price char(50) not null,
+	
+	item2_name char(50) not null,
+	item2_num char(50) not null,
+	item2_price char(50) not null,
+	
+	item3_name char(50) not null,
+	item3_num char(50) not null,
+	item3_price char(50) not null,
+	
+	item4_name char(50) not null,
+	item4_num char(50) not null,
+	item4_price char(50) not null,
+
+	item5_name char(50) not null,
+	item5_num char(50) not null,
+	item5_price char(50) not null,
 	packagestatus char(10) not null
 );
 
 create table orders
 (
-	trackingnumber varchar(100) not null primary key,
-	customerid int unsigned not null references customers(customerid),
-	packageid int unsigned not null,
+	trackingnumber varchar(100) not null,
+	cid int unsigned not null references customers(cid),
+	pack_id int unsigned not null,
 	orderstatus varchar(100) not null,
-	item1 char(50) not null,
-	item2 char(50) not null,
-	item3 char(50) not null,
-	item4 char(50) not null,
-	item5 char(50) not null
+	order_total int not null,
+	primary key(trackingnumber,pack_id)
 );
 
 create table admin
