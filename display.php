@@ -122,7 +122,7 @@ function do_html_header($title){
 																	<tr>
 																		<td></td>
 																		<td height="28" class="hei"><div align="left">
-																				<a href="pkg_send.php" class="MainLeft">更新包裹信息</a>
+																				<a href="pkg_update.php" class="MainLeft">更新包裹信息</a>
 																			</div>
 																		</td>
 																	</tr>
