@@ -11,9 +11,7 @@ try{
 	echo $e->getMessage();
 	exit();
 }
-?>
 
-<?php 
 function display_pkg_send(){
 
 	$title="会员服务系统";
@@ -24,9 +22,7 @@ function display_pkg_send(){
 		display_pkg_form();
 	}
 }
-?>
 
-<?php 
 function display_pkg_form() {
 $conn = db_connect();
 $result = $conn->query("select * from package");
@@ -47,7 +43,7 @@ $result = $conn->query("select * from package");
 										<tr>
 											<td class="da" width="100%" colspan="3" height="30" style="text-indent:26px"><img height="15" src="images/tip_arrow3.jpg" width="15">&nbsp;&nbsp;已发包裹&nbsp;&nbsp;&nbsp;&nbsp;<input name="skey" type="text" id="skey" size="15" maxlength="30" class="pic_border">&nbsp;
 											
-											<select name="pk_areaid_sel" id="pk_areaid_sel" onchange="document.getElementById('pk_areaid').value=this.value;">
+					<!--  					<select name="pk_areaid_sel" id="pk_areaid_sel" onchange="document.getElementById('pk_areaid').value=this.value;">
                                                               <option value="">仓库名称</option>
                                                               <option value="5">君安仓库</option><option value="8">免税州DE</option><option value="7">免税州OR</option>
                                                           </select><input name="pk_areaid" type="hidden" id="pk_areaid">
@@ -79,13 +75,13 @@ $result = $conn->query("select * from package");
 	<option value="11">十一月</option>
 	<option value="12">十二月</option>
 </select>
+					-->				
 								
 								
 								
 								
 								
-								
-								 <input type="button" id="bt01" onclick="window.location.href='Us_PackageListUpdate.aspx?pk_areaid='+document.getElementById('pk_areaid').value+'&amp;pk_cometime='+document.getElementById('pk_cometime').value+'&amp;pk_cometime_last='+document.getElementById('pk_cometime_last').value+'&amp;pk_cometime_month='+document.getElementById('pk_cometime_month').value+'&amp;skey='+document.getElementById('skey').value;" class="input_bot" value="搜索"></td>
+					 <input type="button" id="bt01" onclick="window.location.href='Us_PackageListUpdate.aspx?pk_areaid='+document.getElementById('pk_areaid').value+'&amp;pk_cometime='+document.getElementById('pk_cometime').value+'&amp;pk_cometime_last='+document.getElementById('pk_cometime_last').value+'&amp;pk_cometime_month='+document.getElementById('pk_cometime_month').value+'&amp;skey='+document.getElementById('skey').value;" class="input_bot" value="搜索"></td>
 										</tr>
 										
 										<tr>
@@ -96,32 +92,104 @@ $result = $conn->query("select * from package");
 				                                <span id="txtShowContent"></span><table class="hei" cellspacing="1" cellpadding="2" width="100%" bgcolor="#3ac3a7" border="0" valign="middle">
 				                                   <tbody><tr bgcolor="#CCFFCC" height="25">
 					                                 <td class="hei" valign="middle" align="center" width="30"><b>序号</b></td>
-					                                 <td class="hei" valign="middle" align="center" width="100"><b>送达方式</b></td>
-					                                 <td class="hei" valign="middle" align="center" width="100"><b>美国快递单号</b></td>
-					                                 <td class="hei" valign="middle" align="center" width="90"><b>重量(磅)</b></td>
-					                                 <td class="hei" valign="middle" align="center" width="70"><b>仓库名称</b></td>
-					                                 
-					                                 <td class="hei" valign="middle" align="center" width="70"><b>入库日期</b></td>
-					                                 
 					                                 <td class="hei" valign="middle" align="center" width="90"><b>业务号</b></td>
+					                                 <td class="hei" valign="middle" align="center" width="100"><b>美国快递单号</b></td>
+					                                 <td class="hei" valign="middle" align="center" width="100"><b>送达方式</b></td>					                                 
+					                                 <td class="hei" valign="middle" align="center" width="90"><b>重量(磅)</b></td>
+					                                 <td class="hei" valign="middle" align="center" width="70"><b>入库日期</b></td>
+					                                 <td class="hei" valign="middle" align="center" width="70"><b>包裹状态</b></td>
+					                                 
+					                                 
+					                                 
+					                                 
 					                                 
 					                                 <!--<td class="hei" vAlign="middle" align="center" width="80"><b>备注信息</b></td>-->
 					                                 
-					                                 <td class="hei" valign="middle" align="center" width="*"><b>我的备注</b></td>
-					                                   <td class="hei" valign="middle" align="center" width="130"><b>操作</b></td>
+					                                 <!-- <td class="hei" valign="middle" align="center" width="*"><b>我的备注</b></td> -->
+					                                  <!-- <td class="hei" valign="middle" align="center" width="130"><b>操作</b></td> --> 
 					                                 
 				                                  </tr>
-				                                  
-				                                 <?php 
-				                                 	if ($result) {
-														$i=1;
-				                                 		while ($row = $result->fetch_array()){ ?>
+				                             
+<?php 
+	if ($result) {
+	$Page_size=5;
+	$count = $result->num_rows;
+	$page_count = ceil($count/$Page_size);
+	$init=1;
+	$page_len=7;
+	$max_p=$page_count;
+	$pages=$page_count;
+	$i=1;
+	//判断当前页码
+	if(empty($_GET['page'])||$_GET['page']<0){
+		$page=1;
+	}else {
+		$page=$_GET['page'];
+	}
+	$offset=$Page_size*($page-1);
+	$result = $conn->query("select * from package limit $offset,$Page_size");
+	
+	while ($row = $result->fetch_array()){ 
+?>
 				                                 			
-											   	<tr class="row0" bgcolor="#ffffff"><td nowrap="" align="center" height="26"><?php echo $i++;?> </td><td nowrap="" align="center" height="26"><?php echo $row['delivermethod']?></td><td nowrap="" align="center" height="26"><?php echo $row['tracknumber']?></td><td nowrap="" align="center" height="26"><?php echo $row['pack_weight']?></td><td nowrap="" align="center" height="26"><?php echo $row['storage']?></td><td nowrap="" align="middle" height="26"><?php echo $row['pack_date']?></td><td nowrap="" align="center" height="26"><a href="Us_Mybusiness_Add.aspx?ID=8802"><b><?php echo "XXX".$row['cid'].date("mydHis")?></b></a></td><td nowrap="" align="center" height="26"></td><td nowrap="" align="center" height="26"><a href="Us_PackageList_Add.aspx?ID=14606">添加备注</a>&nbsp;<a href='javascript:if(confirm("您确认提交此包裹-拍照申请-吗？"))  window.location.href="Us_PackageListPhotoAdd.aspx?action=add&pkid=14606"'>拍照</a>&nbsp;<a href='javascript:if(confirm("您确认提交此包裹-退货申请-吗？"))  window.location.href="Us_PackageListReturnAdd.aspx?action=add&pkid=14606"'>退货</a></td></tr>
-				                            	<?php   
-												  		}
-				                                 	}
-				                                ?>
+	<tr class="row0" bgcolor="#ffffff">
+		<td nowrap="" align="center" height="26"><?php echo $i++;?> </td>
+		<td nowrap="" align="center" height="26"><b><?php echo $row['bus_number']?></b></td>
+		<td nowrap="" align="center" height="26"><?php echo $row['tracknumber']?></td>
+		<td nowrap="" align="center" height="26"><?php echo $row['delivermethod']?></td>		
+		<td nowrap="" align="center" height="26"><?php echo $row['pack_weight']?></td>
+		<td nowrap="" align="middle" height="26"><?php echo $row['pack_date']?></td>
+		<td nowrap="" align="center" height="26"><?php echo $row['packagestatus']?></td>
+				
+		<!-- <td nowrap="" align="center" height="26"></td><td nowrap="" align="center" height="26"><a href="Us_PackageList_Add.aspx?ID=14606">添加备注</a>&nbsp;<a href='javascript:if(confirm("您确认提交此包裹-拍照申请-吗？"))  window.location.href="Us_PackageListPhotoAdd.aspx?action=add&pkid=14606"'>拍照</a>&nbsp;<a href='javascript:if(confirm("您确认提交此包裹-退货申请-吗？"))  window.location.href="Us_PackageListReturnAdd.aspx?action=add&pkid=14606"'>退货</a></td></tr> -->
+<?php
+	}
+	
+	$page_len = ($page_len%2)?$page_len:$pagelen+1;//页码个数
+	$pageoffset = ($page_len-1)/2;//页码个数左右偏移量
+	
+	$key='<div class="page">';
+	$key.="<span>$page/$pages</span> "; //第几页,共几页
+	if($page!=1){
+		$key.="<a href=\"".$_SERVER['PHP_SELF']."?page=1\">第一页</a> "; //第一页
+		$key.="<a href=\"".$_SERVER['PHP_SELF']."?page=".($page-1)."\">上一页</a>"; //上一页
+	}else {
+		$key.="第一页 ";//第一页
+		$key.="上一页"; //上一页
+	}
+	if($pages>$page_len){
+		//如果当前页小于等于左偏移
+		if($page<=$pageoffset){
+			$init=1;
+			$max_p = $page_len;
+		}else{//如果当前页大于左偏移
+			//如果当前页码右偏移超出最大分页数
+			if($page+$pageoffset>=$pages+1){
+				$init = $pages-$page_len+1;
+			}else{
+				//左右偏移都存在时的计算
+				$init = $page-$pageoffset;
+				$max_p = $page+$pageoffset;
+			}
+		}
+	}
+	for($i=$init;$i<=$max_p;$i++){
+		if($i==$page){
+			$key.=' <span>'.$i.'</span>';
+		} else {
+			$key.=" <a href=\"".$_SERVER['PHP_SELF']."?page=".$i."\">".$i."</a>";
+		}
+	}
+	if($page!=$pages&&$pages!=0){
+		$key.=" <a href=\"".$_SERVER['PHP_SELF']."?page=".($page+1)."\">下一页</a> ";//下一页
+		$key.="<a href=\"".$_SERVER['PHP_SELF']."?page={$pages}\">最后一页</a>"; //最后一页
+	}else {
+		$key.="下一页 ";//下一页
+		$key.="最后一页"; //最后一页
+	}
+	$key.='</div>';
+	}
+?>
 				                                  
 				                                  <tr height="25" bgcolor="#CCFFCC">
 					                                 <td class="hei" valign="middle" align="right" colspan="10">
@@ -129,8 +197,7 @@ $result = $conn->query("select * from package");
 					                                   <table>
 					                                   <tbody>
 					                                   <tr>
-					                                   	<td>&nbsp;<a href="Us_PackageListUpdate.aspx?CurrentPage=1"><b>上一页</b></a>&nbsp;</td>
-					                                   	<td>&nbsp;<a href="Us_PackageListUpdate.aspx?CurrentPage=1"><b>下一页</b></a>&nbsp;</td>
+					                                   	<td width="100%">&nbsp;<div align="center"><?php echo $key?></div>&nbsp;</td>
 					                                   	</tr></tbody></table></span>
 					                                 </td>
 				                                  </tr>
@@ -143,7 +210,7 @@ $result = $conn->query("select * from package");
 								</td>
 							</tr>	
 </html>
-
 <?php 
+
 }
 ?>

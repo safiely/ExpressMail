@@ -59,7 +59,7 @@ create table package
 	pack_id int unsigned not null auto_increment primary key,
 	cid int unsigned not null references customers(cid),
 	pack_date date not null,
-	storage char(50) not null,
+	bus_number varchar(50) not null,
 	delivermethod char(50) not null,
 	tracknumber char(50) not null,
 	note varchar(250) not null,

@@ -1,5 +1,5 @@
 <?php
-require_once('include.php');
+require_once('valid_user.php');
 
 
 
@@ -20,8 +20,8 @@ try{
 
 	
 	
-	//检查是否是已存在美国单号
-	$query="SELECT cid from package where tracknumber=".$_POST['pk_expressno'];
+	//检查是否是已存在美国单号   有问题： 数字就能判断相同包裹号， 但字母就不行
+	$query="SELECT cid from package where tracknumber='"."$pk_expressno"."'";
 	$result=mysqli_query($connect,$query);
 	if($result->num_rows>0){
 		do_html_header("已经存在的美国包裹号!");
@@ -30,7 +30,7 @@ try{
 	}
 
 	else{
-		$query="INSERT into package (cid,storage,delivermethod,tracknumber,note,pack_weight,item1_name,item1_num,item1_price,item2_name,item2_num,item2_price,item3_name,item3_num,item3_price,item4_name,item4_num,item4_price,item5_name,item5_num,item5_price) values ('".$_SESSION['cid']."','".$_POST['pk_areaid']."','".$_POST['pk_express']."','".$_POST["pk_expressno"]."','".$_POST["pk_remark_user"]."','".$_POST["pk_weight"]."','".$_POST['item1_name']."','".$_POST['item1_num']."','".$_POST['item1_price']."','".$_POST['item2_name']."','".$_POST['item2_num']."','".$_POST['item2_price']."','".$_POST['item3_name']."','".$_POST['item3_num']."','".$_POST['item3_price']."','".$_POST['item4_name']."','".$_POST['item4_num']."','".$_POST['item4_price']."','".$_POST['item5_name']."','".$_POST['item5_num']."','".$_POST['item5_price']."')";
+		$query="INSERT into package (cid,pack_date,bus_number,delivermethod,tracknumber,note,pack_weight,item1_name,item1_num,item1_price,item2_name,item2_num,item2_price,item3_name,item3_num,item3_price,item4_name,item4_num,item4_price,item5_name,item5_num,item5_price,packagestatus) values ('".$_SESSION['cid']."','".date("Y-m-d")."','".$_SESSION['cid']."XXX".$row['cid'].date("mydHis")."','".$_POST['pk_express']."','".$_POST["pk_expressno"]."','".$_POST["pk_remark_user"]."','".$_POST["pk_weight"]."','".$_POST['item1_name']."','".$_POST['item1_num']."','".$_POST['item1_price']."','".$_POST['item2_name']."','".$_POST['item2_num']."','".$_POST['item2_price']."','".$_POST['item3_name']."','".$_POST['item3_num']."','".$_POST['item3_price']."','".$_POST['item4_name']."','".$_POST['item4_num']."','".$_POST['item4_price']."','".$_POST['item5_name']."','".$_POST['item5_num']."','".$_POST['item5_price']."','"."处理中..."."')";
 		$result=mysqli_query($connect,$query);
 
 		if(!$result){
