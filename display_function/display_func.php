@@ -1,6 +1,3 @@
-<?php
-	function do_index_header() {
-?>		
 <html>
 <head>
 <title>牛B的第一次尝试 ！  碉堡了！</title>
@@ -25,7 +22,7 @@
 
 <div id="container" style="width:1200; margin-left: auto; margin-right: auto">
 
-<div id="header" style="background-image: padding: 0; margin: 0; width: 100%; ">
+<div id="header" style="padding: 0; margin: 0; width: 100%; ">
 	<div style="width: 100%; height: 25; float: left; background-color: white"></div>
 	<div style="width: 400; height: 100; float: left; background-color: green">
 	<a href="test.php"><img alt="" src="../img/logo.jpg"></a></div>
@@ -50,13 +47,33 @@
 	</div>
 </div>
 
-<div id="todo" style="background-color:#EEEEEE;height:300px; width:100%; float:left;">
-	<div id="login" style="background-color: peach; width: 400; height: 300; float: left">
-		<div></div>
+
+<div id="todo" style="background-color:#EEEEEE;height:300px; width:100%; float:left; margin-top: 2px;">
+	<form name="home_login" method="post" action="../User/login_check.php" style="margin: 0; padding: 0">
+	<div id="login" style="width: 400; height: 300; float: left; background-image: url('../img/login_bg.jpg');">
+		<div style="margin-top: 125; margin-left: 47;">
+			<input type="text" name="txtUserName" id="txtUserName" style="height: 30; width: 291; ">
+		</div>
+		<div style="margin-top: 31; margin-left: 47">
+			<input type="password" name="txtUserPwd" id="txtUserPwd" style="height: 30; width: 291; ">
+		</div>
+		<div style="margin-left: 43; margin-top: 10;">
+			<input type="checkbox" name="remember_id" id="remember_id">
+		</div>
+		<div style="margin-left: 44; margin-top: 17;">
+			<img alt="" src="../img/submit.jpg" style="cursor: hand;" onclick="javascript:fsubmit(document.home_login);">&nbsp;
+			<a href="../User/register.html">注册一下 我操！</a>
+		</div>
 	</div>
-	<div id="news" style="background-color: silver; width: 400; height: 300; float: left"></div>
+	</form>
+	<div id="video" style="background-color: black; width: 400; height: 300; float: left">
+		<video width="400" height="300" style="margin: 0; padding: 0" controls="controls">
+			<source src="../img/video.mp4" type="video/mp4"></source>
+		</video>
+	</div>
 	<div id="track" style="background-color: grey; width: 400; height: 300; float: left"></div>
 </div>
+
 
 <div id="footer" style="background-color: blue; clear:both; text-align:center;">
 	<div id="link1" style="background-color: red; width: 200; height: 100; float: left"></div>
@@ -72,10 +89,4 @@
  
 </body>
 </html>
-
-	
-	
-<?php 
-}
-?>
 	

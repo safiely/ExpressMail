@@ -68,3 +68,7 @@ function reloadcode() {
 				+ Math.random();
 	}
 }
+
+function fsubmit(obj) {
+	obj.submit();
+}
