@@ -8,7 +8,7 @@
 <meta HTTP-EQUIV="Pragma" CONTENT="no-cache" />
 <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache" />
 <meta HTTP-EQUIV="Expires" CONTENT="0" />
-<script type="text/javascript" src="../javascript/main.js"></script>
+<script type="text/javascript" src="myjs.js"></script>
 <script type="text/javascript" src="../javascript/jquery.min.js"></script>
 <script type="text/javascript" src="../javascript/jquery.cycle.all.latest.js"></script>
 <script type="text/javascript">
@@ -18,7 +18,7 @@
 </script>
 </head>
 
-<body>
+<body onload="checkCookie()">
 
 <div id="container" style="width:1200; margin-left: auto; margin-right: auto">
 
@@ -52,10 +52,10 @@
 	<form name="home_login" method="post" action="../User/login_check.php" style="margin: 0; padding: 0">
 	<div id="login" style="width: 400; height: 300; float: left; background-image: url('../img/login_bg.jpg');">
 		<div style="margin-top: 125; margin-left: 47;">
-			<input type="text" name="txtUserName" id="txtUserName" style="height: 30; width: 291; ">
+			<input type="text" name="txtUserName" id="txtUserName" style="height: 30; width: 291;" onblur="javascript: setCookie('username', 'txtUserName', '30');">
 		</div>
 		<div style="margin-top: 31; margin-left: 47">
-			<input type="password" name="txtUserPwd" id="txtUserPwd" style="height: 30; width: 291; ">
+			<input type="password" name="txtUserPwd" id="txtUserPwd" style="height: 30; width: 291;" onkeypress="javascript: if(event.keyCode==13){setCookie('password', 'txtUserPwd', '30');  fsubmit(document.home_login);}">
 		</div>
 		<div style="margin-left: 43; margin-top: 10;">
 			<input type="checkbox" name="remember_id" id="remember_id">

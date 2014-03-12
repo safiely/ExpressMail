@@ -69,6 +69,3 @@ function reloadcode() {
 	}
 }
 
-function fsubmit(obj) {
-	obj.submit();
-}
